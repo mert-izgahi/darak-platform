@@ -23,9 +23,12 @@ def create_app(config_name="development"):
     init_extensions(app)
 
     # Register blueprints — we'll add these as we build each feature
-    # from .auth import auth_bp
-    # app.register_blueprint(auth_bp, url_prefix="/auth")
+    # ── Blueprints ──────────────────────────────
+    from .auth import auth_bp
 
+    app.register_blueprint(auth_bp, url_prefix="/auth")
+
+    # ────────────────────────────────────────────
     @app.route("/health")
     def health_check():
         """Simple route to verify the app is running."""

@@ -9,7 +9,9 @@ class Config:
     """Base configuration — shared across all environments."""
 
     SECRET_KEY = os.environ.get("SECRET_KEY", "fallback-secret-key")
-    JWT_SECRET_KEY = os.environ.get("JWT_SECRET_KEY", "fallback-jwt-key")
+    JWT_SECRET_KEY = os.environ.get(
+        "JWT_SECRET_KEY", "fallback-jwt-secret-key-at-least-32-bytes"
+    )
     MONGODB_URI = os.environ.get("MONGODB_URI", "mongodb://localhost:27017/darak_dev")
 
     CLOUDINARY_CLOUD_NAME = os.environ.get("CLOUDINARY_CLOUD_NAME")
@@ -35,7 +37,8 @@ class TestingConfig(Config):
     """Testing — separate database, no real side effects."""
 
     TESTING = True
-    MONGODB_URI = "mongodb://localhost:27017/darak_test"
+    MONGODB_URI = "mongodb://localhost:27017/darak_test?uuidRepresentation=standard"
+    JWT_SECRET_KEY = "test-jwt-secret-key-at-least-32-bytes"
 
 
 # This dictionary lets us select config by name string

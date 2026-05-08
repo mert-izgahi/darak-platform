@@ -49,8 +49,8 @@ jobs:
     env:
       FLASK_ENV: testing
       SECRET_KEY: ci-secret-key
-      JWT_SECRET_KEY: ci-jwt-secret-key
-      MONGODB_URI: mongodb://localhost:27017/darak_test
+      JWT_SECRET_KEY: ci-jwt-secret-key-at-least-32-bytes
+      MONGODB_URI: mongodb://localhost:27017/darak_test?uuidRepresentation=standard
       CLOUDINARY_CLOUD_NAME: fake
       CLOUDINARY_API_KEY: fake
       CLOUDINARY_API_SECRET: fake

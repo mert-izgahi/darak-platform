@@ -16,7 +16,7 @@ def init_extensions(app):
     jwt.init_app(app)
 
     # MongoDB — connect using URI from config
-    connect(host=app.config["MONGODB_URI"])
+    connect(host=app.config["MONGODB_URI"], uuidRepresentation="standard")
 
     # Cloudinary
     cloudinary.config(
