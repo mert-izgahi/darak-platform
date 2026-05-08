@@ -1,0 +1,2 @@
+# app/listings/__init__.py
+from .routes import listings_bp  # noqa: F401

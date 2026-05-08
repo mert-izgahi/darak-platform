@@ -26,9 +26,11 @@ def create_app(config_name="development"):
     # ── Blueprints ──────────────────────────────
     from .auth import auth_bp
     from .brokers import brokers_bp
+    from .listings import listings_bp
 
     app.register_blueprint(auth_bp, url_prefix="/auth")
     app.register_blueprint(brokers_bp, url_prefix="/brokers")
+    app.register_blueprint(listings_bp, url_prefix="/listings")
 
     # ────────────────────────────────────────────
     @app.route("/health")
