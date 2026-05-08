@@ -25,8 +25,10 @@ def create_app(config_name="development"):
     # Register blueprints — we'll add these as we build each feature
     # ── Blueprints ──────────────────────────────
     from .auth import auth_bp
+    from .brokers import brokers_bp
 
     app.register_blueprint(auth_bp, url_prefix="/auth")
+    app.register_blueprint(brokers_bp, url_prefix="/brokers")
 
     # ────────────────────────────────────────────
     @app.route("/health")
