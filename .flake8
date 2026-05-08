@@ -1,0 +1,11 @@
+# .flake8
+[flake8]
+max-line-length = 100
+exclude =
+    venv,
+    __pycache__,
+    .git,
+    migrations
+ignore =
+    E501,
+    W503
