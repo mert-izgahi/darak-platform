@@ -27,10 +27,12 @@ def create_app(config_name="development"):
     from .auth import auth_bp
     from .brokers import brokers_bp
     from .listings import listings_bp
+    from .leads import leads_bp
 
     app.register_blueprint(auth_bp, url_prefix="/auth")
     app.register_blueprint(brokers_bp, url_prefix="/brokers")
     app.register_blueprint(listings_bp, url_prefix="/listings")
+    app.register_blueprint(leads_bp, url_prefix="/leads")
 
     # ────────────────────────────────────────────
     @app.route("/health")

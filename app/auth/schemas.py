@@ -5,7 +5,10 @@ from marshmallow import Schema, fields, validate
 class RegisterSchema(Schema):
     """Validates input for the /auth/register endpoint."""
 
-    name = fields.Str(required=True, validate=validate.Length(min=2, max=100))
+    name = fields.Str(
+        required=True,
+        validate=validate.Length(min=2, max=100),
+    )
     email = fields.Email(required=True)
     phone = fields.Str(required=True, validate=validate.Length(min=7, max=20))
     password = fields.Str(
