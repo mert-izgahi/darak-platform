@@ -92,6 +92,9 @@ class Listing(Document):
             "-created_at",  # descending — newest first
             ("city", "property_type", "purpose"),  # compound index
         ],
+        # text index — enables keyword search
+        "fields": ["$title", "$description", "$city", "$district"],
+        "default_language": "none",  # "none" supports Arabic + English
     }
 
     # ── Ownership ─────────────────────────────
